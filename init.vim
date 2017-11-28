@@ -8,7 +8,8 @@ set tabstop=4           " Render TABs using this many spaces.
 set shiftwidth=4        " Indentation amount for < and > commands.
 
 set linespace=0         " Set line-spacing to minimum.
-set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
+set nojoinspaces        " Prevents inserting two spaces after punctuation on a
+                        " join (J)
 
 " More natural splits
 set splitbelow          " Horizontal split below current.
@@ -22,7 +23,8 @@ if !&sidescrolloff
 endif
 set nostartofline       " Do not jump to first character with page commands.
 
-" Tell Vim which characters to show for expanded TABs, trailing whitespace, and end-of-lines. VERY useful!
+" Tell Vim which characters to show for expanded TABs, trailing whitespace, and
+" end-of-lines. VERY useful!
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
@@ -54,21 +56,23 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
 " Mapping colon for faster command typing
-nnoremap <unique> ; :
-nnoremap <unique> : ;
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Plugins
 call plug#begin()
-Plug 'roxma/nvim-completion-manager'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'cloudhead/neovim-fuzzy'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 Plug 'Valloric/YouCompleteMe'
+Plug 'honza/vim-snippets'
+
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+
 Plug 'google/vim-colorscheme-primary'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
@@ -115,15 +119,23 @@ colorscheme primary
 let g:neotex_enabled = 2
 let g:neotex_delay = 1000
 
+" YCM
+let g:ycm_filetype_blacklist = {
+            \ 'tex' : 1,
+            \ 'plaintex' : 1
+            \}
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
 " NERDTree
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
+" Automatically open NERDTree if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Highlight characters over the 80th column
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" Auto reload configurations
+" Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
     au!
     autocmd bufwritepost init.vim source ~/.config/nvim/init.vim
