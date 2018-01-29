@@ -39,6 +39,7 @@ set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set magic               " Use 'magic' patterns (extended regular expressions).
+set cpoptions+=x
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -60,6 +61,9 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+" Replace tabs with spaces
+set tabstop=4 shiftwidth=4 expandtab
 
 " Plugins
 call plug#begin()
