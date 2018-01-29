@@ -77,10 +77,11 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
-Plug 'google/vim-colorscheme-primary'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 "vim-airline"
@@ -114,9 +115,8 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Color scheme
 syntax enable
-set t_Co=256
 set background=dark
-colorscheme primary
+colorscheme solarized
 
 
 " Neo Tex
