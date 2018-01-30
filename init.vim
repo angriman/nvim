@@ -63,7 +63,7 @@ vnoremap ; :
 vnoremap : ;
 
 " Replace tabs with spaces
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 "expandtab
 
 " Plugins
 call plug#begin()
