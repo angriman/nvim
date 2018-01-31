@@ -73,7 +73,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe'
 Plug 'honza/vim-snippets'
 
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
@@ -82,6 +81,7 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'lervag/vimtex'
 call plug#end()
 
 "vim-airline"
@@ -118,11 +118,6 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-
-" Neo Tex
-let g:neotex_enabled = 2
-let g:neotex_delay = 1000
-
 " YCM
 let g:ycm_filetype_blacklist = {
             \ 'tex' : 1,
@@ -151,6 +146,9 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
+
+" Tex pdf viewer
+let g:vimtex_view_method = 'zathura'
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
