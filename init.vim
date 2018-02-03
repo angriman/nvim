@@ -3,9 +3,9 @@ set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
 set textwidth=0         " Hard-wrap long lines as you type them.
-"set expandtab           " Insert spaces when TAB is pressed.
+set expandtab           " Insert spaces when TAB is pressed.
 set tabstop=2           " Render TABs using this many spaces.
-"set shiftwidth=2        " Indentation amount for < and > commands.
+set shiftwidth=2        " Indentation amount for < and > commands.
 
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
