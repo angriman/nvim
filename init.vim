@@ -77,6 +77,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
