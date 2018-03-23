@@ -10,7 +10,7 @@ set shiftwidth=2        " Indentation amount for < and > commands.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
                         " join (J)
-"set listchars=tab:\ \ 
+set listchars=tab:\ \ 
 ",trail:.,eol:¬,nbsp:_
 
 " More natural splits
@@ -153,6 +153,10 @@ augroup autoformat_settings
 "  autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
+
+" Sconstruct syntax as Python
+:autocmd BufNew,BufRead SConstruct setf python
+
 
 " Tex pdf viewer
 "let g:vimtex_view_method = 'zathura'
