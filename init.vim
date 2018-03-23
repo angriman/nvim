@@ -10,7 +10,7 @@ set shiftwidth=2        " Indentation amount for < and > commands.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
                         " join (J)
-set listchars=tab:\ \ 
+"set listchars=tab:\ \ 
 ",trail:.,eol:¬,nbsp:_
 
 " More natural splits
@@ -125,7 +125,7 @@ colorscheme solarized
 let g:ycm_filetype_blacklist = {
             \ 'tex' : 1,
             \ 'plaintex' : 1,
-						\ 'xml' : 1
+	    \ 'xml' : 1
             \}
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -155,7 +155,7 @@ augroup autoformat_settings
 augroup END
 
 " Tex pdf viewer
-let g:vimtex_view_method = 'zathura'
+"let g:vimtex_view_method = 'zathura'
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
