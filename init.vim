@@ -83,6 +83,8 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
+Plug 'stfl/meson.vim'
+
 Plug 'altercation/vim-colors-solarized'
 Plug 'lervag/vimtex'
 call plug#end()
