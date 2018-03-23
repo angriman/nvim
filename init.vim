@@ -65,7 +65,7 @@ vnoremap ; :
 vnoremap : ;
 
 " Replace tabs with spaces
-set tabstop=2 shiftwidth=2 "expandtab
+"set tabstop=2 shiftwidth=2 "expandtab
 
 " Plugins
 call plug#begin()
@@ -124,9 +124,13 @@ colorscheme solarized
 " YCM
 let g:ycm_filetype_blacklist = {
             \ 'tex' : 1,
-            \ 'plaintex' : 1
+            \ 'plaintex' : 1,
+						\ 'xml' : 1
             \}
 let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 
 " NERDTree
 " Automatically open NERDTree if no files are specified
