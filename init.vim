@@ -3,15 +3,13 @@ set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
 set textwidth=0         " Hard-wrap long lines as you type them.
-"set expandtab           " Insert spaces when TAB is pressed.
 set tabstop=2           " Render TABs using this many spaces.
 set shiftwidth=2        " Indentation amount for < and > commands.
 
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
                         " join (J)
-set listchars=tab:\ \ 
-",trail:.,eol:¬,nbsp:_
+"set listchars=tab:\ \ 
 
 " More natural splits
 set splitbelow          " Horizontal split below current.
@@ -28,7 +26,7 @@ set nostartofline       " Do not jump to first character with page commands.
 " Tell Vim which characters to show for expanded TABs, trailing whitespace, and
 " end-of-lines. VERY useful!
 if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  set listchars=trail:-,extends:>,precedes:<,nbsp:+
 endif
 set list                " Show problematic characters.
 
@@ -63,9 +61,6 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
-" Replace tabs with spaces
-"set tabstop=2 shiftwidth=2 "expandtab
 
 " Plugins
 call plug#begin()
