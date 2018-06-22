@@ -68,6 +68,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -124,19 +125,64 @@ let g:ycm_filetype_blacklist = {
             \ 'plaintex' : 1,
 	    \ 'xml' : 1
             \}
-let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_python_binary_path = '/usr/local/Cellar/python3' 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_list_accept_completion = ['<C-y>']
+
+" Additional UltiSnips config.
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/plugged/ultisnips'
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
+
+" Additional YouCompleteMe config.
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+
+" Disable unhelpful semantic completions.
+let g:ycm_filetype_specific_completion_to_disable = {
+      \   'c': 1,
+      \   'gitcommit': 1,
+      \   'haskell': 1,
+      \   'javascript': 1,
+      \   'ruby': 1
+      \ }
+
+let g:ycm_semantic_triggers = {
+      \   'haskell': [
+      \     '.',
+      \     '(',
+      \     ',',
+      \     ', '
+      \   ]
+      \ }
+
+" Same as default, but with "markdown" and "text" removed.
+let g:ycm_filetype_blacklist = {
+      \   'notes': 1,
+      \   'unite': 1,
+      \   'tagbar': 1,
+      \   'pandoc': 1,
+      \   'qf': 1,
+      \   'vimwiki': 1,
+      \   'infolog': 1,
+      \   'mail': 1
+      \ }
 
 " NERDTree
 " Automatically open NERDTree if no files are specified
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Highlight characters over the 80th column
-"highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
 
 " Auto formatting
 augroup autoformat_settings
@@ -147,8 +193,8 @@ augroup autoformat_settings
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
-"  autocmd FileType python AutoFormatBuffer yapf
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+ " autocmd FileType python AutoFormatBuffer yapf
+ " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
 " Sconstruct syntax as Python
