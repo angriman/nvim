@@ -8,18 +8,18 @@ set shiftwidth=2        " Indentation amount for < and > commands.
 
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
-                        " join (J)
-"set listchars=tab:\ \ 
+												" join (J)
+"set listchars=tab:\ \
 
 " More natural splits
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 
 if !&scrolloff
-    set scrolloff=3       " Show next 3 lines while scrolling.
+	set scrolloff=3       " Show next 3 lines while scrolling.
 endif
 if !&sidescrolloff
-    set sidescrolloff=5   " Show next 5 columns while side-scrolling.
+	set sidescrolloff=5   " Show next 5 columns while side-scrolling.
 endif
 set nostartofline       " Do not jump to first character with page commands.
 
@@ -43,7 +43,7 @@ set cpoptions+=x
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+	nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
 " Search and Replace
@@ -121,13 +121,14 @@ colorscheme solarized
 
 " YCM
 let g:ycm_filetype_blacklist = {
-            \ 'tex' : 1,
-            \ 'plaintex' : 1,
-	    \ 'xml' : 1
-            \}
-let g:ycm_python_binary_path = '/usr/local/Cellar/python3' 
+			\ 'tex' : 1,
+			\ 'plaintex' : 1,
+			\ 'xml' : 1
+\}
+let g:ycm_python_binary_path = '/usr/local/Cellar/python3'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '/Users/eugenio/.config/nvim/scripts/.ycm_extra_conf.py'
 
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -151,33 +152,33 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
-      \   'c': 1,
-      \   'gitcommit': 1,
-      \   'haskell': 1,
-      \   'javascript': 1,
-      \   'ruby': 1
-      \ }
+			\   'c': 1,
+			\   'gitcommit': 1,
+			\   'haskell': 1,
+			\   'javascript': 1,
+			\   'ruby': 1
+\}
 
 let g:ycm_semantic_triggers = {
-      \   'haskell': [
-      \     '.',
-      \     '(',
-      \     ',',
-      \     ', '
-      \   ]
-      \ }
+			\   'haskell': [
+			\     '.',
+			\     '(',
+			\     ',',
+			\     ', '
+			\]
+\}
 
 " Same as default, but with "markdown" and "text" removed.
 let g:ycm_filetype_blacklist = {
-      \   'notes': 1,
-      \   'unite': 1,
-      \   'tagbar': 1,
-      \   'pandoc': 1,
-      \   'qf': 1,
-      \   'vimwiki': 1,
-      \   'infolog': 1,
-      \   'mail': 1
-      \ }
+			\   'notes': 1,
+			\   'unite': 1,
+			\   'tagbar': 1,
+			\   'pandoc': 1,
+			\   'qf': 1,
+			\   'vimwiki': 1,
+			\   'infolog': 1,
+			\   'mail': 1
+\}
 
 " NERDTree
 " Automatically open NERDTree if no files are specified
@@ -185,17 +186,17 @@ let g:ycm_filetype_blacklist = {
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Auto formatting
-"augroup autoformat_settings
-"  autocmd FileType bzl AutoFormatBuffer buildifier
-"  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-"  autocmd FileType dart AutoFormatBuffer dartfmt
-"  autocmd FileType go AutoFormatBuffer gofmt
-"  autocmd FileType gn AutoFormatBuffer gn
-"  autocmd FileType html,css,json AutoFormatBuffer js-beautify
-"  autocmd FileType java AutoFormatBuffer google-java-format
-" " autocmd FileType python AutoFormatBuffer yapf
-" " Alternative: autocmd FileType python AutoFormatBuffer autopep8
-"augroup END
+augroup autoformat_settings
+	autocmd FileType bzl AutoFormatBuffer buildifier
+	autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+	autocmd FileType dart AutoFormatBuffer dartfmt
+	autocmd FileType go AutoFormatBuffer gofmt
+	autocmd FileType gn AutoFormatBuffer gn
+	autocmd FileType html,css,json AutoFormatBuffer js-beautify
+	autocmd FileType java AutoFormatBuffer google-java-format
+	" autocmd FileType python AutoFormatBuffer yapf
+	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
+augroup END
 
 " Sconstruct syntax as Python
 :autocmd BufNew,BufRead SConstruct setf python
@@ -206,6 +207,6 @@ let g:ycm_filetype_blacklist = {
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
-    au!
-    autocmd bufwritepost init.vim source ~/.config/nvim/init.vim
+	au!
+	autocmd bufwritepost init.vim source ~/.config/nvim/init.vim
 augroup END
