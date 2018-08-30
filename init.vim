@@ -3,13 +3,13 @@ set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
 set textwidth=0         " Hard-wrap long lines as you type them.
-set tabstop=2           " Render TABs using this many spaces.
+set expandtab!
 set shiftwidth=2        " Indentation amount for < and > commands.
+set tabstop=2           " Render TABs using this many spaces.
 
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
 												" join (J)
-"set listchars=tab:\ \
 
 " More natural splits
 set splitbelow          " Horizontal split below current.
@@ -22,17 +22,6 @@ if !&sidescrolloff
 	set sidescrolloff=5   " Show next 5 columns while side-scrolling.
 endif
 set nostartofline       " Do not jump to first character with page commands.
-
-" Tell Vim which characters to show for expanded TABs, trailing whitespace, and
-" end-of-lines. VERY useful!
-"if &listchars ==# 'eol:$'
-"  set listchars=trail:-,extends:>,precedes:<,nbsp:+
-"endif
-"set list                " Show problematic characters.
-
-" Also highlight all tabs and trailing whitespace characters.
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|\t/
 
 " Search
 set ignorecase          " Make searching case insensitive
@@ -125,7 +114,7 @@ let g:ycm_filetype_blacklist = {
 			\ 'plaintex' : 1,
 			\ 'xml' : 1
 \}
-let g:ycm_python_binary_path = '/usr/local/Cellar/python3'
+"let g:ycm_python_binary_path = '/usr/local/Cellar/python3'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '/Users/eugenio/.config/nvim/scripts/.ycm_extra_conf.py'
