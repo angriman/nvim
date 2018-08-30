@@ -193,6 +193,7 @@ augroup END
 
 " Tex pdf viewer
 "let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
