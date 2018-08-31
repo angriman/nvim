@@ -68,7 +68,6 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'lervag/vimtex'
 call plug#end()
 
 "vim-airline"
@@ -187,9 +186,6 @@ augroup autoformat_settings
 	" autocmd FileType python AutoFormatBuffer yapf
 	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
-
-" Sconstruct syntax as Python
-":autocmd BufNew,BufRead SConstruct setf python
 
 " Avoid configuration to be overridden by plugins in python files.
 let g:python_recommended_style = 0
