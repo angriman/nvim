@@ -67,8 +67,6 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
-Plug 'stfl/meson.vim'
-
 Plug 'altercation/vim-colors-solarized'
 Plug 'lervag/vimtex'
 call plug#end()
@@ -117,26 +115,27 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '/Users/eugenio/.config/nvim/scripts/.ycm_extra_conf.py'
-
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_key_list_accept_completion = ['<C-y>']
-
-" Additional UltiSnips config.
-let g:UltiSnipsSnippetsDir = '~/.config/nvim/plugged/ultisnips'
-let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
 " Additional YouCompleteMe config.
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+
+" Same as default, but with "markdown" and "text" removed.
+let g:ycm_filetype_blacklist = {
+			\   'notes': 1,
+			\   'unite': 1,
+			\   'tagbar': 1,
+			\   'pandoc': 1,
+			\   'qf': 1,
+			\   'vimwiki': 1,
+			\   'infolog': 1,
+			\   'mail': 1
+\}
+
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
@@ -156,17 +155,14 @@ let g:ycm_semantic_triggers = {
 			\]
 \}
 
-" Same as default, but with "markdown" and "text" removed.
-let g:ycm_filetype_blacklist = {
-			\   'notes': 1,
-			\   'unite': 1,
-			\   'tagbar': 1,
-			\   'pandoc': 1,
-			\   'qf': 1,
-			\   'vimwiki': 1,
-			\   'infolog': 1,
-			\   'mail': 1
-\}
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Additional UltiSnips config.
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/plugged/ultisnips'
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
 " NERDTree
 " Automatically open NERDTree if no files are specified
@@ -188,11 +184,6 @@ augroup END
 
 " Sconstruct syntax as Python
 :autocmd BufNew,BufRead SConstruct setf python
-
-
-" Tex pdf viewer
-"let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_progname = 'nvr'
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
