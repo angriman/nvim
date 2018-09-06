@@ -3,7 +3,6 @@ set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
 set textwidth=0         " Hard-wrap long lines as you type them.
-set expandtab!
 set shiftwidth=2        " Indentation amount for < and > commands.
 set tabstop=2           " Render TABs using this many spaces.
 
@@ -114,7 +113,7 @@ let g:ycm_filetype_blacklist = {
 			\ 'plaintex' : 1,
 			\ 'xml' : 1
 \}
-"let g:ycm_python_binary_path = '/usr/local/Cellar/python3'
+let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '/Users/eugenio/.config/nvim/scripts/.ycm_extra_conf.py'
