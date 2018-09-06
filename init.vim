@@ -89,6 +89,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_symbols.branch = '⎇'
 let g:airline_solarized_bg='dark'
+
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -98,7 +99,12 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-
+" configure which whitespace checks to enable.
+" indent: mixed indent within a line
+" long:   overlong lines
+" trailing: trailing whitespace
+" mixed-indent-file: different indentation in different lines
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long']
 
 " Color scheme
 syntax enable
@@ -107,9 +113,9 @@ colorscheme solarized
 
 " YCM
 let g:ycm_filetype_blacklist = {
-			\ 'tex' : 1,
-			\ 'plaintex' : 1,
-			\ 'xml' : 1
+	\ 'tex' : 1,
+	\ 'plaintex' : 1,
+	\ 'xml' : 1
 \}
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -126,33 +132,33 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Same as default, but with "markdown" and "text" removed.
 let g:ycm_filetype_blacklist = {
-			\   'notes': 1,
-			\   'unite': 1,
-			\   'tagbar': 1,
-			\   'pandoc': 1,
-			\   'qf': 1,
-			\   'vimwiki': 1,
-			\   'infolog': 1,
-			\   'mail': 1
+	\   'notes': 1,
+	\   'unite': 1,
+	\   'tagbar': 1,
+	\   'pandoc': 1,
+	\   'qf': 1,
+	\   'vimwiki': 1,
+	\   'infolog': 1,
+	\   'mail': 1
 \}
 
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
-			\   'c': 1,
-			\   'gitcommit': 1,
-			\   'haskell': 1,
-			\   'javascript': 1,
-			\   'ruby': 1
+	\  	'c': 1,
+	\  	'gitcommit': 1,
+	\  	'haskell': 1,
+	\  	'javascript': 1,
+	\ 	'ruby': 1
 \}
 
 let g:ycm_semantic_triggers = {
-			\   'haskell': [
-			\     '.',
-			\     '(',
-			\     ',',
-			\     ', '
-			\]
+	\   'haskell': [
+	\     '.',
+	\     '(',
+	\     ',',
+	\     ', '
+	\]
 \}
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
