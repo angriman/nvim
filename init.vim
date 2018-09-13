@@ -5,8 +5,8 @@ set formatoptions+=o    " Continue comment marker in new lines.
 set textwidth=0         " Hard-wrap long lines as you type them.
 set shiftwidth=2        " Indentation amount for < and > commands.
 set tabstop=2           " Render TABs using this many spaces.
-
 set linespace=0         " Set line-spacing to minimum.
+set noexpandtab					" Avoid to put spaces instead of tabs.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
 												" join (J)
 
@@ -189,7 +189,10 @@ augroup autoformat_settings
 augroup END
 
 " Sconstruct syntax as Python
-:autocmd BufNew,BufRead SConstruct setf python
+":autocmd BufNew,BufRead SConstruct setf python
+
+" Avoid configuration to be overridden by plugins in python files.
+let g:python_recommended_style = 0
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
