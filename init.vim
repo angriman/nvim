@@ -183,12 +183,15 @@ augroup autoformat_settings
 	autocmd FileType gn AutoFormatBuffer gn
 	autocmd FileType html,css,json AutoFormatBuffer js-beautify
 	autocmd FileType java AutoFormatBuffer google-java-format
-	" autocmd FileType python AutoFormatBuffer yapf
+"	autocmd FileType python AutoFormatBuffer yapf
 	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
+" Python
 " Avoid configuration to be overridden by plugins in python files.
-let g:python_recommended_style = 0
+let g:python_recommended_style=0
+let g:yapf_style="google"
+
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
