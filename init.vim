@@ -11,7 +11,7 @@ set linespace=0         " Set line-spacing to minimum.
 set noexpandtab					" Avoid to put spaces instead of tabs.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a
 												" join (J)
-
+set encoding=utf-8
 " More natural splits
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
@@ -56,6 +56,7 @@ vnoremap : ;
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'powerline/fonts'
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
@@ -70,26 +71,45 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 
 "vim-airline"
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ' '
 let g:airline#extensions#tabline#right_alt_sep = '|'
-let g:airline_powerline_fonts = 1
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_symbols.branch = '⎇'
-let g:airline_solarized_bg='dark'
 
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -105,12 +125,12 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " long:   overlong lines
 " trailing: trailing whitespace
 " mixed-indent-file: different indentation in different lines
-let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long']
+let g:airline#extensions#whitespace#checks = ['trailing', 'long']
 
 " Color scheme
 syntax enable
-set background=dark
 colorscheme solarized
+set background=dark
 
 " YCM
 let g:ycm_filetype_blacklist = {
@@ -121,7 +141,7 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/scripts/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.config/nvim/scripts/.ycm_extra_conf.py'
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_key_list_accept_completion = ['<C-y>']
