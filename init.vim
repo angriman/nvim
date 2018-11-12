@@ -39,13 +39,6 @@ endif
 " Search and Replace
 nmap <Leader>s :%s//g<Left><Left>()
 
-" Open file menu
-nnoremap <Leader>o :CtrlP<CR>
-" Open buffer menu
-nnoremap <Leader>b :CtrlPBuffer<CR>
-" Open most recently used files
-nnoremap <Leader>f :CtrlPMRUFiles<CR>
-
 " Mapping colon for faster command typing
 nnoremap ; :
 nnoremap : ;
@@ -73,6 +66,15 @@ Plug 'google/vim-glaive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
+
+" Open file menu
+nnoremap <Leader>o :CtrlP<CR>
+" Open buffer menu
+nnoremap <Leader>b :CtrlPBuffer<CR>
+" Open most recently used files
+nnoremap <Leader>f :CtrlPMRUFiles<CR>
+" CtrlP ignore files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 
 "vim-airline"
 " air-line
@@ -163,7 +165,6 @@ let g:ycm_filetype_blacklist = {
 	\   'mail': 1
 \}
 
-
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
 	\  	'c': 1,
@@ -182,7 +183,8 @@ let g:ycm_semantic_triggers = {
 	\]
 \}
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -190,11 +192,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Additional UltiSnips config.
 let g:UltiSnipsSnippetsDir = '~/.config/nvim/plugged/ultisnips'
 let g:UltiSnipsSnippetDirectories = ['ultisnips']
-
-" NERDTree
-" Automatically open NERDTree if no files are specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Auto formatting
 augroup autoformat_settings
@@ -213,7 +210,6 @@ augroup END
 " Avoid configuration to be overridden by plugins in python files.
 let g:python_recommended_style=0
 let g:yapf_style="google"
-
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
