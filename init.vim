@@ -1,40 +1,41 @@
 " Basic editor settings
-set showmatch           " Show matching brackets.
-:set number relativenumber
-:set nonumber norelativenumber 	" turn hybrid line numbers off
-:set number! relativenumber!   	" toggle hybrid line numbers
-set formatoptions+=o    " Continue comment marker in new lines.
-set textwidth=0         " Hard-wrap long lines as you type them.
-set shiftwidth=2        " Indentation amount for < and > commands.
-set tabstop=2           " Render TABs using this many spaces.
-set linespace=0         " Set line-spacing to minimum.
-set noexpandtab					" Avoid to put spaces instead of tabs.
-set nojoinspaces        " Prevents inserting two spaces after punctuation on a
-												" join (J)
+set showmatch                 " Show matching brackets.
+set number relativenumber     " Turn relative line numbers on.
+set nonumber norelativenumber " Turn hybrid line numbers off.
+set number! relativenumber!   " Toggle hybrid line numbers
+set formatoptions+=o          " Continue comment marker in new lines.
+set textwidth=0               " Hard-wrap long lines as you type them.
+set shiftwidth=2              " Indentation amount for < and > commands.
+set tabstop=2                 " Render TABs using this many spaces.
+set linespace=0               " Set line-spacing to minimum.
+set expandtab                 " Put spaces instead of tabs.
+set nojoinspaces              " Prevents inserting two spaces after punctuation
+                              " on a join (J)
 set encoding=utf-8
+
 " More natural splits
-set splitbelow          " Horizontal split below current.
-set splitright          " Vertical split to right of current.
+set splitbelow                " Horizontal split below current.
+set splitright                " Vertical split to right of current.
 
 if !&scrolloff
-	set scrolloff=3       " Show next 3 lines while scrolling.
+  set scrolloff=3             " Show next 3 lines while scrolling.
 endif
 if !&sidescrolloff
-	set sidescrolloff=5   " Show next 5 columns while side-scrolling.
+  set sidescrolloff=5         " Show next 5 columns while side-scrolling.
 endif
-set nostartofline       " Do not jump to first character with page commands.
+set nostartofline             " Do not jump to first character with page commands.
 
 " Search
-set ignorecase          " Make searching case insensitive
-set smartcase           " ... unless the query has capital letters.
-set gdefault            " Use 'g' flag by default with :s/foo/bar/.
-set magic               " Use 'magic' patterns (extended regular expressions).
+set ignorecase                " Make searching case insensitive
+set smartcase                 " ... unless the query has capital letters.
+set gdefault                  " Use 'g' flag by default with :s/foo/bar/.
+set magic                     " Use 'magic' patterns (extended regular expressions).
 set cpoptions+=x
 set autoread
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
-	nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
 " Search and Replace
@@ -137,9 +138,9 @@ set background=dark
 
 " YCM
 let g:ycm_filetype_blacklist = {
-	\ 'tex' : 1,
-	\ 'plaintex' : 1,
-	\ 'xml' : 1
+  \ 'tex' : 1,
+  \ 'plaintex' : 1,
+  \ 'xml' : 1
 \}
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -156,32 +157,32 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Same as default, but with "markdown" and "text" removed.
 let g:ycm_filetype_blacklist = {
-	\   'notes': 1,
-	\   'unite': 1,
-	\   'tagbar': 1,
-	\   'pandoc': 1,
-	\   'qf': 1,
-	\   'vimwiki': 1,
-	\   'infolog': 1,
-	\   'mail': 1
+  \   'notes': 1,
+  \   'unite': 1,
+  \   'tagbar': 1,
+  \   'pandoc': 1,
+  \   'qf': 1,
+  \   'vimwiki': 1,
+  \   'infolog': 1,
+  \   'mail': 1
 \}
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
-	\  	'c': 1,
-	\  	'gitcommit': 1,
-	\  	'haskell': 1,
-	\  	'javascript': 1,
-	\ 	'ruby': 1
+  \    'c': 1,
+  \    'gitcommit': 1,
+  \    'haskell': 1,
+  \    'javascript': 1,
+  \   'ruby': 1
 \}
 
 let g:ycm_semantic_triggers = {
-	\   'haskell': [
-	\     '.',
-	\     '(',
-	\     ',',
-	\     ', '
-	\]
+  \   'haskell': [
+  \     '.',
+  \     '(',
+  \     ',',
+  \     ', '
+  \]
 \}
 
 " Trigger configuration. Do not use <tab> if you use
@@ -196,15 +197,15 @@ let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
 " Auto formatting
 augroup autoformat_settings
-	autocmd FileType bzl AutoFormatBuffer buildifier
-	autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-	autocmd FileType dart AutoFormatBuffer dartfmt
-	autocmd FileType go AutoFormatBuffer gofmt
-	autocmd FileType gn AutoFormatBuffer gn
-	autocmd FileType html,css,json AutoFormatBuffer js-beautify
-	autocmd FileType java AutoFormatBuffer google-java-format
-"	autocmd FileType python AutoFormatBuffer yapf
-	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType bzl AutoFormatBuffer buildifier
+"  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+"  autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
 " Python
@@ -214,6 +215,6 @@ let g:yapf_style="google"
 
 " Auto reload vim configurations after writing init.vim
 augroup myvimrchooks
-	au!
-	autocmd bufwritepost init.vim source ~/.config/nvim/init.vim
+  au!
+  autocmd bufwritepost init.vim source ~/.config/nvim/init.vim
 augroup END
