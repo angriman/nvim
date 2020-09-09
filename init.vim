@@ -59,7 +59,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 
@@ -76,16 +77,14 @@ call glaive#Install()
 Glaive codefmt plugin[mappings]
 Glaive codefmt google_java_executable="java -jar /Users/eugenio/.google-java-format-1.7-all-deps.jar"
 
-" Open file menu
-nnoremap <Leader>o :CtrlP<CR>
-" Open buffer menu
-nnoremap <Leader>b :CtrlPBuffer<CR>
-" Open most recently used files
-nnoremap <Leader>f :CtrlPMRUFiles<CR>
-" CtrlP ignore files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
-" CtrlP custom ignore
-let g:ctrlp_custom_ignore = 'build/\|DS_Store\|git'
+" FZF
+nnoremap <c-p> :GFiles<cr>
+
+" Empty value to disable preview window altogether
+let g:fzf_preview_window = ''
+
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:60%'
 
 "vim-airline"
 let g:airline_powerline_fonts = 1
