@@ -52,6 +52,8 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerline/fonts'
+Plug 'lambdalisue/vim-cython-syntax'
+Plug 'tpope/vim-eunuch'
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
@@ -61,13 +63,18 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 
-Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+Plug 'google/vim-maktaba'
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'rafi/awesome-vim-colorschemes'
+
+Plug 'lervag/vimtex'
 call plug#end()
+call glaive#Install()
+Glaive codefmt plugin[mappings]
+Glaive codefmt google_java_executable="java -jar /Users/eugenio/.google-java-format-1.7-all-deps.jar"
 
 " Open file menu
 nnoremap <Leader>o :CtrlP<CR>
@@ -78,10 +85,9 @@ nnoremap <Leader>f :CtrlPMRUFiles<CR>
 " CtrlP ignore files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 " CtrlP custom ignore
-let g:ctrlp_custom_ignore = 'build\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'build/\|DS_Store\|git'
 
 "vim-airline"
-" air-line
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -187,11 +193,14 @@ let g:ycm_semantic_triggers = {
   \]
 \}
 
+" Vim-TeX
+let g:tex_flavor = 'latex'
+
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-m>"
+let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
 " Additional UltiSnips config.
 let g:UltiSnipsSnippetsDir = '~/.config/nvim/plugged/ultisnips'
@@ -200,14 +209,14 @@ let g:UltiSnipsSnippetDirectories = ['ultisnips']
 " Auto formatting
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+"  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer autopep8
+  "  autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  "  autocmd FileType java AutoFormatBuffer google-java-format
 "  autocmd FileType python AutoFormatBuffer yapf
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
 " Python
